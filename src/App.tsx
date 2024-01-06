@@ -1,12 +1,20 @@
 
-
-import './App.css'
+import {ThemeProvider} from 'styled-components'
+import { defaultTheme } from './styles/themes/default'
+import { BrowserRouter } from 'react-router-dom'
+import { Router } from './routes/Router'
 
 export function App() {
 
 
   return (
-  <h1>GitBlog</h1>
+    <ThemeProvider theme={defaultTheme}>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </ThemeProvider>
     )
+    
+  
 }
 
