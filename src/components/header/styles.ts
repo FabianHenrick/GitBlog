@@ -10,6 +10,8 @@ export const HeaderContainer = styled.div`
   );
   height: 296px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  //box-shadow: 10px 10px 10px black;
 `;
