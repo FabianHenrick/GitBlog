@@ -13,7 +13,7 @@ export const HeaderContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  //box-shadow: 10px 10px 10px black;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 
 export const HomeContainer = styled.div`
@@ -24,7 +24,8 @@ export const HomeContainer = styled.div`
 
   h1 {
     text-decoration: none;
-    font-family: "coda";
+    font-family: Coda;
     color: ${(props) => props.theme["blue"]};
+    text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.2);
   }
 `;
