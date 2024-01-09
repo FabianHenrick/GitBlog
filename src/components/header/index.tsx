@@ -1,13 +1,17 @@
-import { HeaderContainer } from "./styles";
-//import { terminal_logo } from "../../../public/terminal_logo.svg";
+import { HeaderContainer, HomeContainer } from "./styles";
+import SvgPageIcon from "../../../public/PageIcon";
+import { NavLink } from "react-router-dom";
+
 export function Header() {
   return (
     <HeaderContainer>
       <img src="../../../public/effect_left.png" />
-      <div>
-        <img src="" />
-        <h1>GitBlog</h1>
-      </div>
+      <NavLink path="/">
+        <HomeContainer>
+          <SvgPageIcon />
+          <h1>Github Blog</h1>
+        </HomeContainer>
+      </NavLink>
       <img src="../../../public/effect_right.png" />
     </HeaderContainer>
   );

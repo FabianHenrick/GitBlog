@@ -15,3 +15,16 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   //box-shadow: 10px 10px 10px black;
 `;
+
+export const HomeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  h1 {
+    text-decoration: none;
+    font-family: "coda";
+    color: ${(props) => props.theme["blue"]};
+  }
+`;
