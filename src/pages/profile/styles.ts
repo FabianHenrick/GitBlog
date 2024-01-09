@@ -21,6 +21,7 @@ export const ProfileUserContainer = styled.div`
     border-radius: 8px;
   }
 `;
+
 /*input {
     display: flex;
     padding: 12px 16px;

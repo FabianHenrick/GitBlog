@@ -10,6 +10,7 @@ export function Profile() {
             Futuro programador, e streamer, tentando programar uma vida melhor
             para minha família!
           </span>
+          <div>icons</div>
         </div>
       </ProfileUserContainer>
       <div>
