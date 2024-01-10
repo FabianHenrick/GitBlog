@@ -6,7 +6,7 @@ export function Header() {
   return (
     <HeaderContainer>
       <img src="../../../public/effect_left.png" />
-      <NavLink path="/" title="home">
+      <NavLink to="/" title="home">
         <HomeContainer>
           <SvgPageIcon />
           <h1>Github Blog</h1>

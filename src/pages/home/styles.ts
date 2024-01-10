@@ -37,6 +37,18 @@ export const SearchUserContainer = styled.div`
     font-weight: 400;
     line-height: 160%; /* 25.6px */
   }
+  div {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    button {
+      border-radius: 8px;
+      height: 32px;
+      width: 32px;
+      background-color: ${(props) => props.theme["base-border"]};
+    }
+  }
 
   input:onfocus {
   }

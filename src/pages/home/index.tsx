@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { SearchUserContainer } from "./styles";
 
 export function Home() {
@@ -9,10 +10,17 @@ export function Home() {
           Aqui você pode encontrar usuários do Github e explorar seus
           repositóros mais interessantes!
         </h3>
-        <input
-          type="text"
-          placeholder="Pesquise um nome de usuário do Github"
-        />
+        <div>
+          <input
+            type="text"
+            placeholder="Pesquise um nome de usuário do Github"
+          />
+          <NavLink to="/profile">
+            <button>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </NavLink>
+        </div>
       </SearchUserContainer>
       <div></div>
     </div>
