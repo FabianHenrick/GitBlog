@@ -1,4 +1,5 @@
 import { ProfileUserContainer } from "./styles";
+
 export function Profile() {
   return (
     <div>
@@ -10,7 +11,17 @@ export function Profile() {
             Futuro programador, e streamer, tentando programar uma vida melhor
             para minha família!
           </span>
-          <div>icons</div>
+          <div>
+            <i className="fa-brands fa-github">
+              <span>Fabian Henrick</span>
+            </i>
+            <i className="fa-solid fa-building">
+              <span>Rocketseat</span>
+            </i>
+            <i className="fa-solid fa-user-group">
+              <span>2 seguidores</span>
+            </i>
+          </div>
         </div>
       </ProfileUserContainer>
       <div>

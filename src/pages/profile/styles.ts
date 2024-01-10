@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ProfileUserContainer = styled.div`
   gap: 32px;
+  padding: 40px 32px;
   display: flex;
   width: 864px;
   height: 212px;
@@ -15,6 +16,30 @@ export const ProfileUserContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: ${(props) => props.theme["base-profile"]};
+
+  div {
+    display: flex;
+    flex-direction: column;
+    height: 148px;
+    gap: 12px;
+
+    div {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      i {
+        span {
+          margin-left: 8px;
+          color: ${(props) => props.theme["base-subtitle"]};
+          font-family: Nunito;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 160%; /* 25.6px */
+        }
+      }
+    }
+  }
 
   img {
     width: 148px;

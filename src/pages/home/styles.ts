@@ -50,6 +50,10 @@ export const SearchUserContainer = styled.div`
       cursor: pointer;
       border: 1px ${(props) => props.theme["base-label"]} solid;
       background-color: ${(props) => props.theme["base-border"]};
+
+      i {
+        color: ${(props) => props.theme["base-subtitle"]};
+      }
     }
   }
 
