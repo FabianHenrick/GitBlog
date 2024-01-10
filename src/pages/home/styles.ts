@@ -44,8 +44,11 @@ export const SearchUserContainer = styled.div`
 
     button {
       border-radius: 8px;
-      height: 32px;
-      width: 32px;
+      height: 36px;
+      width: 36px;
+      border: none;
+      cursor: pointer;
+      border: 1px ${(props) => props.theme["base-label"]} solid;
       background-color: ${(props) => props.theme["base-border"]};
     }
   }
