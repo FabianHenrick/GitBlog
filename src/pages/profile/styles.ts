@@ -47,24 +47,32 @@ export const ProfileUserContainer = styled.div`
   }
 `;
 
-/*input {
+export const IssueSearchContainter = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  gap: 8px;
+
+  input {
     display: flex;
     padding: 12px 16px;
     align-items: center;
     gap: 8px;
     height: 36px;
-    width: 732px;
+    width: 864px;
     border-radius: 6px;
     border: 1px solid var(--Base-Border, #1c2f41);
-    background: var(--Base-Input, #040f1a);
-
+    background: ${(props) => props.theme["base-input"]};
     color: var(--Base-Label, #3a536b);
 
-
+    /* Text/Text M */
     font-family: Nunito;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 160%;
+    line-height: 160%; /* 25.6px */
   }
-*/
+`;

@@ -1,4 +1,4 @@
-import { ProfileUserContainer } from "./styles";
+import { IssueSearchContainter, ProfileUserContainer } from "./styles";
 
 export function Profile() {
   return (
@@ -24,13 +24,13 @@ export function Profile() {
           </div>
         </div>
       </ProfileUserContainer>
-      <div>
-        {" "}
+      <IssueSearchContainter>
+        {" Publicações"}
         <input
           type="text"
           placeholder="Pesquise um nome de usuário do Github"
         />
-      </div>
+      </IssueSearchContainter>
     </div>
   );
 }
