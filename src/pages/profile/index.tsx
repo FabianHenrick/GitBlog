@@ -1,6 +1,20 @@
 import { IssueSearchContainter, ProfileUserContainer } from "./styles";
+/* import { useState } from "react";
+import { UserProps } from "../../@types/user";
+import axios from "axios";
+import Url from "../../axios/config"; */
 
 export function Profile() {
+  /* const [user, setUser] = useState<UserProps | null>();
+  function getUser() {
+    axios
+      .get("https://api.github.com/users/fabianhenrick")
+      .then((response) => {
+        const data = response.data;
+        .textContent = data;
+      })
+      .catch((error) => console.log(error));
+  } */
   return (
     <div>
       <ProfileUserContainer>
