@@ -9,14 +9,33 @@ export function Home() {
   const [userName, setUserName] = useState("");
 
   async function loadUser(userName: string) {
-    axios
+    await axios
       .get(`https://api.github.com/users/${userName}`)
       .then((response) => {
         const data = response.data;
+        const { avatar_url, company, name, login, location, followers, bio } =
+          data;
+
+        const userData: UserProps = {
+          avatar_url,
+          login,
+          location,
+          followers,
+          bio,
+          company,
+          name,
+        };
+        setUser(userData);
+        console.log(userData);
       })
       .catch((error) => console.log(error));
   }
 
+  /*  const handleKeyDown = (e: any) => {
+    if (e.key === "Enter") {
+      loadUser(userName);
+    }
+  }; */
   return (
     <div>
       <SearchUserContainer>
@@ -30,6 +49,7 @@ export function Home() {
             type="text"
             placeholder="Pesquise um nome de usuário do Github"
             onChange={(e) => setUserName(e.target.value)}
+            //onKeyDown={handleKeyDown}
           />
           <NavLink to="/profile">
             <button onClick={() => loadUser(userName)}>

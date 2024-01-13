@@ -1,39 +1,31 @@
 import { IssueSearchContainter, ProfileUserContainer } from "./styles";
-/* import { useState } from "react";
-import { UserProps } from "../../@types/user";
-import axios from "axios";
-import Url from "../../axios/config"; */
 
-export function Profile() {
-  /* const [user, setUser] = useState<UserProps | null>();
-  function getUser() {
-    axios
-      .get("https://api.github.com/users/fabianhenrick")
-      .then((response) => {
-        const data = response.data;
-        .textContent = data;
-      })
-      .catch((error) => console.log(error));
-  } */
+import { UserProps } from "../../@types/user";
+
+export function Profile({
+  login,
+  name,
+  avatar_url,
+  followers,
+  company,
+  bio,
+}: UserProps) {
   return (
     <div>
       <ProfileUserContainer>
-        <img src="https://avatars.githubusercontent.com/u/106247220?v=4"></img>
+        <img src={avatar_url}></img>
         <div>
-          <h1>Fabian Henrick</h1>
-          <span>
-            Futuro programador, e streamer, tentando programar uma vida melhor
-            para minha família!
-          </span>
+          <h1>{login}</h1>
+          <span>{bio}</span>
           <div>
             <i className="fa-brands fa-github">
-              <span>Fabian Henrick</span>
+              <span>{name}</span>
             </i>
             <i className="fa-solid fa-building">
-              <span>Rocketseat</span>
+              <span>{company}</span>
             </i>
             <i className="fa-solid fa-user-group">
-              <span>2 seguidores</span>
+              <span>{followers} seguidores</span>
             </i>
           </div>
         </div>
