@@ -1,34 +1,26 @@
 import { IssueSearchContainter, ProfileUserContainer } from "./styles";
-import { UserProps } from "../../@types/user";
 import { UserContext } from "../../context/UserDataContext";
 import { useContext } from "react";
 
-export function Profile({
-  login,
-  name,
-  avatar_url,
-  followers,
-  company,
-  bio,
-}: UserProps) {
+export function Profile() {
   const { user } = useContext(UserContext);
   console.log(user);
   return (
     <div>
       <ProfileUserContainer>
-        <img src={avatar_url}></img>
+        <img src={user.avatar_url}></img>
         <div>
-          <h1>{login}</h1>
-          <span>{bio}</span>
+          <h1>{user.login}</h1>
+          <span>{user.bio}</span>
           <div>
             <i className="fa-brands fa-github">
-              <span>{name}</span>
+              <span>{user.name}</span>
             </i>
             <i className="fa-solid fa-building">
-              <span>{company}</span>
+              <span>{user.company}</span>
             </i>
             <i className="fa-solid fa-user-group">
-              <span>{followers} seguidores</span>
+              <span>{user.followers} seguidores</span>
             </i>
           </div>
         </div>
