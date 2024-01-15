@@ -1,6 +1,7 @@
 import { IssueSearchContainter, ProfileUserContainer } from "./styles";
-
 import { UserProps } from "../../@types/user";
+import { UserContext } from "../../context/UserDataContext";
+import { useContext } from "react";
 
 export function Profile({
   login,
@@ -10,6 +11,8 @@ export function Profile({
   company,
   bio,
 }: UserProps) {
+  const { user } = useContext(UserContext);
+  console.log(user);
   return (
     <div>
       <ProfileUserContainer>

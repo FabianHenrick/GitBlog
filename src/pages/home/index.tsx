@@ -1,41 +1,19 @@
 import { NavLink } from "react-router-dom";
 import { SearchUserContainer } from "./styles";
-import { useState } from "react";
-import { UserProps } from "../../@types/user";
-import axios from "axios";
+
+import { UserContext } from "../../context/UserDataContext";
+
+import { useContext } from "react";
 
 export function Home() {
-  const [user, setUser] = useState<UserProps | null>(null);
-  const [userName, setUserName] = useState("");
-
-  async function loadUser(userName: string) {
-    await axios
-      .get(`https://api.github.com/users/${userName}`)
-      .then((response) => {
-        const data = response.data;
-        const { avatar_url, company, name, login, location, followers, bio } =
-          data;
-
-        const userData: UserProps = {
-          avatar_url,
-          login,
-          location,
-          followers,
-          bio,
-          company,
-          name,
-        };
-        setUser(userData);
-        console.log(userData);
-      })
-      .catch((error) => console.log(error));
-  }
+  const { userName, setUserName, loadUser } = useContext(UserContext);
 
   /*  const handleKeyDown = (e: any) => {
     if (e.key === "Enter") {
       loadUser(userName);
     }
   }; */
+
   return (
     <div>
       <SearchUserContainer>
