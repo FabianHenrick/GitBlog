@@ -1,6 +1,5 @@
 import {
   IssueSearchContainter,
-  ProfileInformations,
   ProfileInformationsContainer,
   ProfileNavegationContainer,
   ProfileUserContainer,
