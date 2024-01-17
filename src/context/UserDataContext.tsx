@@ -3,7 +3,8 @@ import axios from "axios";
 import React, { createContext, useState } from "react";
 import { UserProps } from "../@types/user";
 
-//interface UserContextType {}
+//preciso criar uma interface para typagem dos dados e funções exportados com o hook, mas ainda não sei fazer isso.
+
 export const UserContext = createContext({} as any);
 
 export const UserContextProvider = ({
@@ -11,7 +12,7 @@ export const UserContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [user, setUser] = useState<UserProps | null>(null);
+  const [user, setUser] = useState<UserProps>({} as UserProps);
   const [userName, setUserName] = useState("");
 
   async function loadUser(userName: string) {

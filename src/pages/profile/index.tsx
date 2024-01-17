@@ -1,15 +1,32 @@
-import { IssueSearchContainter, ProfileUserContainer } from "./styles";
+import {
+  IssueSearchContainter,
+  ProfileInformations,
+  ProfileInformationsContainer,
+  ProfileNavegationContainer,
+  ProfileUserContainer,
+} from "./styles";
 import { UserContext } from "../../context/UserDataContext";
 import { useContext } from "react";
 
 export function Profile() {
-  const { user } = useContext(UserContext);
+  const { user, userName } = useContext(UserContext);
   console.log(user);
   return (
     <div>
       <ProfileUserContainer>
+        <ProfileNavegationContainer>
+          <a href={`/`}>
+            <i className="fa-solid fa-chevron-left"></i>
+            Voltar
+          </a>
+          <a href={`https://github.com/${userName}`}>
+            Github
+            <i className="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </ProfileNavegationContainer>
+
         <img src={user.avatar_url}></img>
-        <div>
+        <ProfileInformationsContainer>
           <h1>{user.login}</h1>
           <span>{user.bio}</span>
           <div>
@@ -23,13 +40,13 @@ export function Profile() {
               <span>{user.followers} seguidores</span>
             </i>
           </div>
-        </div>
+        </ProfileInformationsContainer>
       </ProfileUserContainer>
       <IssueSearchContainter>
         {" Publicações"}
         <input
           type="text"
-          placeholder="Pesquise um nome de usuário do Github"
+          placeholder="Procurando algum repositório expecífico? "
         />
       </IssueSearchContainter>
     </div>

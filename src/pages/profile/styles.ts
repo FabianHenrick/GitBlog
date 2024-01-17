@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ProfileUserContainer = styled.div`
   gap: 32px;
   padding: 40px 32px;
+  padding-top: 70px;
   display: flex;
   width: 864px;
   height: 212px;
@@ -17,36 +18,50 @@ export const ProfileUserContainer = styled.div`
   transform: translate(-50%, -50%);
   background-color: ${(props) => props.theme["base-profile"]};
 
-  div {
-    display: flex;
-    flex-direction: column;
-    height: 148px;
-    gap: 12px;
-
-    div {
-      display: flex;
-      flex-direction: row;
-      gap: 2rem;
-      i {
-        span {
-          margin-left: 8px;
-          color: ${(props) => props.theme["base-subtitle"]};
-          font-family: Nunito;
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 160%; /* 25.6px */
-        }
-      }
-    }
-  }
-
   img {
     width: 148px;
     border-radius: 8px;
   }
 `;
 
+export const ProfileNavegationContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  justify-content: space-between;
+  width: 94%;
+  top: 8%;
+  a {
+    color: ${(props) => props.theme["blue"]};
+  }
+`;
+
+export const ProfileInformationsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 148px;
+  gap: 12px;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+
+    i {
+      span {
+        margin-left: 8px;
+        color: ${(props) => props.theme["base-subtitle"]};
+        font-family: Nunito;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%; /* 25.6px */
+      }
+    }
+  }
+`;
 export const IssueSearchContainter = styled.div`
   display: flex;
   flex-direction: column;

@@ -1,10 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { SearchUserContainer } from "./styles";
-
 import { UserContext } from "../../context/UserDataContext";
-
 import { useContext } from "react";
-
 export function Home() {
   const { userName, setUserName, loadUser } = useContext(UserContext);
 
