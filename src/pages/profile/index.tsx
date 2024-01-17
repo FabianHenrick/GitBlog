@@ -1,11 +1,13 @@
 import {
   IssueSearchContainter,
   ProfileInformationsContainer,
+  RepositoryList,
   ProfileNavegationContainer,
   ProfileUserContainer,
 } from "./styles";
 import { UserContext } from "../../context/UserDataContext";
 import { useContext } from "react";
+import { RepositoryComponent } from "../../components/RepositorysComponent";
 
 export function Profile() {
   const { user, userName } = useContext(UserContext);
@@ -48,6 +50,9 @@ export function Profile() {
           placeholder="Procurando algum repositório expecífico? "
         />
       </IssueSearchContainter>
+      <RepositoryList>
+        <RepositoryComponent />
+      </RepositoryList>
     </div>
   );
 }

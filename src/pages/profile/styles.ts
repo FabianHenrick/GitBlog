@@ -91,3 +91,7 @@ export const IssueSearchContainter = styled.div`
     line-height: 160%; /* 25.6px */
   }
 `;
+
+export const RepositoryList = styled.li`
+  margin-top: 40%;
+`;
