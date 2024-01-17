@@ -5,4 +5,17 @@ export const RepositoryCard = styled.div`
   width: 416px;
   height: 260px;
   border-radius: 10px;
+  cursor: pointer;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  div {
+    gap: 30px;
+    display: flex;
+    h2 {
+      width: 286px;
+    }
+  }
 `;
