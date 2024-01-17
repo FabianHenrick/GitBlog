@@ -1,4 +1,5 @@
 import {
+  RepositorysContainer,
   IssueSearchContainter,
   ProfileInformationsContainer,
   RepositoryList,
@@ -43,16 +44,23 @@ export function Profile() {
           </div>
         </ProfileInformationsContainer>
       </ProfileUserContainer>
-      <IssueSearchContainter>
-        {" Publicações"}
-        <input
-          type="text"
-          placeholder="Procurando algum repositório expecífico? "
-        />
-      </IssueSearchContainter>
-      <RepositoryList>
-        <RepositoryComponent />
-      </RepositoryList>
+
+      <RepositorysContainer>
+        <IssueSearchContainter>
+          {" Publicações"}
+          <input
+            type="text"
+            placeholder="Procurando algum repositório expecífico? "
+          />
+        </IssueSearchContainter>
+        <RepositoryList>
+          <li>
+            <RepositoryComponent />
+            <RepositoryComponent />
+            <RepositoryComponent />
+          </li>
+        </RepositoryList>
+      </RepositorysContainer>
     </div>
   );
 }

@@ -62,13 +62,18 @@ export const ProfileInformationsContainer = styled.div`
     }
   }
 `;
+export const RepositorysContainer = styled.div`
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+`;
+
 export const IssueSearchContainter = styled.div`
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   gap: 8px;
 
   input {
@@ -92,6 +97,13 @@ export const IssueSearchContainter = styled.div`
   }
 `;
 
-export const RepositoryList = styled.li`
-  margin-top: 40%;
+export const RepositoryList = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  li {
+    gap: 2rem;
+    display: flex;
+    width: 864px;
+  }
 `;
