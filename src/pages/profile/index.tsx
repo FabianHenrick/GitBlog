@@ -58,6 +58,9 @@ export function Profile() {
             <RepositoryComponent />
             <RepositoryComponent />
             <RepositoryComponent />
+            <RepositoryComponent />
+            <RepositoryComponent />
+            <RepositoryComponent />
           </li>
         </RepositoryList>
       </RepositorysContainer>

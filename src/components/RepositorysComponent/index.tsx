@@ -1,6 +1,8 @@
+import { RepositoryCard } from "./styles";
+
 export function RepositoryComponent() {
   return (
-    <div>
+    <RepositoryCard>
       <div>
         <h2>JavaScript data types and data structures</h2>
         <p>Há 1 dia</p>
@@ -11,6 +13,6 @@ export function RepositoryComponent() {
         differ from one language to another. This article attempts to list the
         built-in data structures available in{" "}
       </p>
-    </div>
+    </RepositoryCard>
   );
 }

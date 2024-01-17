@@ -103,7 +103,8 @@ export const RepositoryList = styled.div`
   align-items: center;
   li {
     gap: 2rem;
-    display: flex;
+    display: grid;
+    grid-template-columns: 416px 260px;
     width: 864px;
   }
 `;
