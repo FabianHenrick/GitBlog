@@ -9,33 +9,37 @@ import {
 import axios from "axios";
 import { UserContext } from "../../context/UserDataContext";
 import { useContext, useState } from "react";
-import { RepositoryComponent } from "../../components/RepositorysComponent";
 
 export function Profile() {
   const { user, userName } = useContext(UserContext);
 
-  interface Repository {
+  type Repository = {
     name: string;
     language: string;
     description: string | null;
     created_at: string;
-  }
+  };
 
   interface RepositorysType {
     repositorys: Repository[];
   }
-  const [repositorys, setRepositorys] = useState<RepositorysType[]>([]);
+  const [repositorys, setRepositorys] = useState<RepositorysType[] | any>(
+    [] as any
+  );
 
-  async function loadRepository() {
+  async function loadRepository(userName: string) {
     await axios
-      .get(`https://api.github.com/users/${user}/repos`)
+      .get(`https://api.github.com/users/${userName}/repos`)
       .then((response) => {
-        console.log(response);
+        const data = response.data;
+        const [repositorys] = data;
+        const RepositoryData: any = [repositorys];
+        setRepositorys(RepositoryData);
       })
 
       .catch((error) => console.log(error));
   }
-  loadRepository();
+  loadRepository(userName);
   console.log(repositorys);
   return (
     <div>
@@ -78,11 +82,7 @@ export function Profile() {
           />
         </IssueSearchContainter>
         <RepositoryList>
-          <li>
-            {repositorys.map((repositorys) => {
-              return <p>{repositorys.name}</p>;
-            })}
-          </li>
+          <li></li>
         </RepositoryList>
       </RepositorysContainer>
     </div>
