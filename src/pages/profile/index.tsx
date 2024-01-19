@@ -88,7 +88,7 @@ export function Profile() {
                 <RepositoryCard>
                   <div>
                     <h2>{repositories.name}</h2>
-                    <p>{repositories.created_at}</p>
+                    <time>{repositories.created_at}</time>
                   </div>
 
                   <p>
