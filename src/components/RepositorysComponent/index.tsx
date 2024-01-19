@@ -1,4 +1,4 @@
-import { RepositoryCard } from "./styles";
+/* import { RepositoryCard } from "./styles";
 
 export function RepositoryComponent() {
   return (
@@ -16,3 +16,4 @@ export function RepositoryComponent() {
     </RepositoryCard>
   );
 }
+ */

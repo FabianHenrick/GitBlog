@@ -5,6 +5,7 @@ import {
   RepositoryList,
   ProfileNavegationContainer,
   ProfileUserContainer,
+  RepositoryCard,
 } from "./styles";
 import axios from "axios";
 import { UserContext } from "../../context/UserDataContext";
@@ -40,7 +41,6 @@ export function Profile() {
       .catch((error) => console.log(error));
   }
   loadRepository(userName);
-  console.log(repositorys);
   return (
     <div>
       <ProfileUserContainer>
@@ -82,7 +82,25 @@ export function Profile() {
           />
         </IssueSearchContainter>
         <RepositoryList>
-          <li></li>
+          <li>
+            {repositorys.map((repositorys: Repository) => {
+              return (
+                <RepositoryCard>
+                  <div>
+                    <h2>{repositorys.name}</h2>
+                    <p>{repositorys.created_at}</p>
+                  </div>
+
+                  <p>
+                    Programming languages all have built-in data structures, but
+                    these often differ from one language to another. This
+                    article attempts to list the built-in data structures
+                    available in{" "}
+                  </p>
+                </RepositoryCard>
+              );
+            })}
+          </li>
         </RepositoryList>
       </RepositorysContainer>
     </div>
