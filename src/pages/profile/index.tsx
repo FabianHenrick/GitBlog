@@ -21,10 +21,10 @@ export function Profile() {
     created_at: string;
   };
 
-  interface RepositorysType {
+  interface RepositoriesType {
     repositorys: Repository[];
   }
-  const [repositorys, setRepositorys] = useState<RepositorysType[] | any>(
+  const [repositories, setRepositories] = useState<RepositoriesType[] | any>(
     [] as any
   );
 
@@ -33,9 +33,9 @@ export function Profile() {
       .get(`https://api.github.com/users/${userName}/repos`)
       .then((response) => {
         const data = response.data;
-        const [repositorys] = data;
-        const RepositoryData: any = [repositorys];
-        setRepositorys(RepositoryData);
+        const repositories = data;
+        const RepositoryData: RepositoriesType = repositories;
+        setRepositories(RepositoryData);
       })
 
       .catch((error) => console.log(error));
@@ -82,13 +82,13 @@ export function Profile() {
           />
         </IssueSearchContainter>
         <RepositoryList>
-          <li>
-            {repositorys.map((repositorys: Repository) => {
+          <li key={repositories.id}>
+            {repositories.map((repositories: Repository) => {
               return (
                 <RepositoryCard>
                   <div>
-                    <h2>{repositorys.name}</h2>
-                    <p>{repositorys.created_at}</p>
+                    <h2>{repositories.name}</h2>
+                    <p>{repositories.created_at}</p>
                   </div>
 
                   <p>
