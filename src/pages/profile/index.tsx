@@ -30,14 +30,13 @@ export function Profile() {
     await axios
       .get(`https://api.github.com/users/${user}/repos`)
       .then((response) => {
-        const data = response.data;
-        const [Repository] = data;
-        setRepositorys(Repository);
+        console.log(response);
       })
 
       .catch((error) => console.log(error));
   }
   loadRepository();
+  console.log(repositorys);
   return (
     <div>
       <ProfileUserContainer>
