@@ -97,6 +97,7 @@ export function Profile() {
                     article attempts to list the built-in data structures
                     available in{" "}
                   </p>
+                  <p>{repositories.language}</p>
                 </RepositoryCard>
               );
             })}
