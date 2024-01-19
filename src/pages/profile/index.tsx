@@ -6,13 +6,42 @@ import {
   ProfileNavegationContainer,
   ProfileUserContainer,
 } from "./styles";
+import axios from "axios";
 import { UserContext } from "../../context/UserDataContext";
 import { useContext } from "react";
 import { RepositoryComponent } from "../../components/RepositorysComponent";
 
 export function Profile() {
   const { user, userName } = useContext(UserContext);
+
+  interface RepositoryType {
+    name: string;
+    language: string;
+    description: string | null;
+    created_at: string;
+  }
+
+  interface RepositorysType {
+    repositorys: RepositoryType[];
+  }
+  const [repositorys, setRepositorys] = useContext<RepositorysType[]>(
+    [] as any
+  );
+
+  async function loadRepository(setRepositorys) {
+    await axios
+      .get(`https://api.github.com/users/${user}/repos`)
+      .then((response) => {
+        const data = response.data;
+        const [Repository] = data;
+
+        setRepositorys(Repository);
+      })
+
+      .catch((error) => console.log(error));
+  }
   console.log(user);
+  loadRepository(repositorys);
   return (
     <div>
       <ProfileUserContainer>
@@ -55,11 +84,6 @@ export function Profile() {
         </IssueSearchContainter>
         <RepositoryList>
           <li>
-            <RepositoryComponent />
-            <RepositoryComponent />
-            <RepositoryComponent />
-            <RepositoryComponent />
-            <RepositoryComponent />
             <RepositoryComponent />
           </li>
         </RepositoryList>
