@@ -41,6 +41,7 @@ export function Profile() {
       .catch((error) => console.log(error));
   }
   loadRepository(userName);
+  const dateFormatter = new Intl.DateTimeFormat("pt-br");
   return (
     <div>
       <ProfileUserContainer>
