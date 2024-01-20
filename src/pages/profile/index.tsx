@@ -7,6 +7,8 @@ import {
   ProfileUserContainer,
   RepositoryCard,
 } from "./styles";
+import { ptBR } from "date-fns/locale/pt-BR";
+import { format, formatDistanceToNow } from "date-fns";
 import axios from "axios";
 import { UserContext } from "../../context/UserDataContext";
 import { useContext, useState } from "react";
@@ -41,7 +43,7 @@ export function Profile() {
       .catch((error) => console.log(error));
   }
   loadRepository(userName);
-  const dateFormatter = new Intl.DateTimeFormat("pt-br");
+
   return (
     <div>
       <ProfileUserContainer>
@@ -92,12 +94,7 @@ export function Profile() {
                     <time>{repositories.created_at}</time>
                   </div>
 
-                  <p>
-                    Programming languages all have built-in data structures, but
-                    these often differ from one language to another. This
-                    article attempts to list the built-in data structures
-                    available in{" "}
-                  </p>
+                  <p>{repositories.description}</p>
                   <p>{repositories.language}</p>
                 </RepositoryCard>
               );
