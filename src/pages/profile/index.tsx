@@ -7,8 +7,7 @@ import {
   ProfileUserContainer,
   RepositoryCard,
 } from "./styles";
-import { ptBR } from "date-fns/locale/pt-BR";
-import { format, formatDistanceToNow } from "date-fns";
+
 import axios from "axios";
 import { UserContext } from "../../context/UserDataContext";
 import { useContext, useState } from "react";
@@ -58,7 +57,7 @@ export function Profile() {
           </a>
         </ProfileNavegationContainer>
 
-        <img src={user.avatar_url}></img>
+        <img src={user.avatar_url} alt="Profile Image"></img>
         <ProfileInformationsContainer>
           <h1>{user.login}</h1>
           <span>{user.bio}</span>
