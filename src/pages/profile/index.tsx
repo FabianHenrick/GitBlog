@@ -1,11 +1,11 @@
 import {
   RepositorysContainer,
-  IssueSearchContainter,
   ProfileInformationsContainer,
   RepositoryList,
   ProfileNavegationContainer,
   ProfileUserContainer,
   RepositoryCard,
+  RepositorySearchContainter,
 } from "./styles";
 
 import axios from "axios";
@@ -76,13 +76,16 @@ export function Profile() {
       </ProfileUserContainer>
 
       <RepositorysContainer>
-        <IssueSearchContainter>
+        <RepositorySearchContainter>
           {" Publicações"}
           <input
             type="text"
             placeholder="Procurando algum repositório expecífico? "
           />
-        </IssueSearchContainter>
+          <button>
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </RepositorySearchContainter>
         <RepositoryList>
           <li key={repositories.id}>
             {repositories.map((repositories: Repository) => {

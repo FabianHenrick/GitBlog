@@ -71,7 +71,7 @@ export const RepositorysContainer = styled.div`
   gap: 2rem;
 `;
 
-export const IssueSearchContainter = styled.div`
+export const RepositorySearchContainter = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -94,6 +94,18 @@ export const IssueSearchContainter = styled.div`
     font-style: normal;
     font-weight: 400;
     line-height: 160%; /* 25.6px */
+  }
+
+  button {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 530px;
+    left: 1131px;
+    border-radius: 6px;
+    border: none;
+    background-color: ${(props) => props.theme["base-border"]};
   }
 `;
 
