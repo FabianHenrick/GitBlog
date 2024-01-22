@@ -86,7 +86,7 @@ export const RepositorySearchContainter = styled.div`
     border-radius: 6px;
     border: 1px solid var(--Base-Border, #1c2f41);
     background: ${(props) => props.theme["base-input"]};
-    color: var(--Base-Label, #3a536b);
+    color: ${(props) => props.theme["base-text"]};
 
     /* Text/Text M */
     font-family: Nunito;

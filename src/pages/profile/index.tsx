@@ -11,6 +11,7 @@ import {
 import axios from "axios";
 import { UserContext } from "../../context/UserDataContext";
 import { useContext, useState } from "react";
+import * as z from "zod";
 
 export function Profile() {
   const { user, userName } = useContext(UserContext);
@@ -41,6 +42,10 @@ export function Profile() {
 
       .catch((error) => console.log(error));
   }
+
+  // utilização do Zod para fazer as buscas
+  const searchFormSchema = z.object({ search: z.string() });
+
   loadRepository(userName);
 
   return (
