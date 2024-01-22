@@ -1,7 +1,6 @@
-// aqui vou começar a criar e exportar contextos para aplicação!
-import axios from "axios";
 import React, { createContext, useState } from "react";
 import { UserProps } from "../@types/user";
+import axios from "axios";
 
 //preciso criar uma interface para typagem dos dados e funções exportados com o hook, mas ainda não sei fazer isso.
 
@@ -15,6 +14,19 @@ export const UserContextProvider = ({
   const [user, setUser] = useState<UserProps>({} as UserProps);
   const [userName, setUserName] = useState("");
 
+  type Repository = {
+    name: string;
+    language: string;
+    description: string | null;
+    created_at: string;
+  };
+
+  interface RepositoriesType {
+    repositorys: Repository[];
+  }
+  const [repositories, setRepositories] = useState<RepositoriesType[] | any>(
+    [] as any
+  );
   async function loadUser(userName: string) {
     await axios
       .get(`https://api.github.com/users/${userName}`)
@@ -34,9 +46,30 @@ export const UserContextProvider = ({
       })
       .catch((error) => console.log(error));
   }
+
+  async function loadRepository(userName: string) {
+    await axios
+      .get(`https://api.github.com/users/${userName}/repos`)
+      .then((response) => {
+        const data = response.data;
+        const repositories = data;
+        const RepositoryData: RepositoriesType = repositories;
+        setRepositories(RepositoryData);
+      })
+
+      .catch((error) => console.log(error));
+  }
   return (
     <UserContext.Provider
-      value={{ user, setUser, userName, setUserName, loadUser }}
+      value={{
+        user,
+        setUser,
+        userName,
+        setUserName,
+        loadUser,
+        repositories,
+        loadRepository,
+      }}
     >
       {children}
     </UserContext.Provider>

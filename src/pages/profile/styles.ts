@@ -71,7 +71,7 @@ export const RepositorysContainer = styled.div`
   gap: 2rem;
 `;
 
-export const RepositorySearchContainter = styled.div`
+export const RepositorySearchContainter = styled.form`
   display: flex;
   flex-direction: column;
   gap: 8px;

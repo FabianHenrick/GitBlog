@@ -7,45 +7,35 @@ import {
   RepositoryCard,
   RepositorySearchContainter,
 } from "./styles";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import axios from "axios";
 import { UserContext } from "../../context/UserDataContext";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import * as z from "zod";
 
-export function Profile() {
-  const { user, userName } = useContext(UserContext);
+const searchFormSchema = z.object({ search: z.string() });
+type SearchFormInputs = z.infer<typeof searchFormSchema>;
 
+export function Profile() {
   type Repository = {
     name: string;
     language: string;
     description: string | null;
     created_at: string;
   };
-
-  interface RepositoriesType {
-    repositorys: Repository[];
-  }
-  const [repositories, setRepositories] = useState<RepositoriesType[] | any>(
-    [] as any
-  );
-
-  async function loadRepository(userName: string) {
-    await axios
-      .get(`https://api.github.com/users/${userName}/repos`)
-      .then((response) => {
-        const data = response.data;
-        const repositories = data;
-        const RepositoryData: RepositoriesType = repositories;
-        setRepositories(RepositoryData);
-      })
-
-      .catch((error) => console.log(error));
-  }
+  const { user, userName, loadRepository, repositories } =
+    useContext(UserContext);
 
   // utilização do Zod para fazer as buscas
-  const searchFormSchema = z.object({ search: z.string() });
-
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm<SearchFormInputs>({ resolver: zodResolver(searchFormSchema) });
+  async function handleSearchTransactions(data: SearchFormInputs) {
+    await loadRepository(data.search);
+  }
   loadRepository(userName);
 
   return (
@@ -81,11 +71,14 @@ export function Profile() {
       </ProfileUserContainer>
 
       <RepositorysContainer>
-        <RepositorySearchContainter>
+        <RepositorySearchContainter
+          onSubmit={handleSubmit(handleSearchTransactions)}
+        >
           {" Publicações"}
           <input
             type="text"
             placeholder="Procurando algum repositório expecífico? "
+            {...register("search")}
           />
           <button>
             <i className="fa-solid fa-magnifying-glass"></i>
