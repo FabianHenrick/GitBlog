@@ -72,13 +72,13 @@ export function Profile() {
 
       <RepositorysContainer>
         <RepositorySearchContainter
-          onSubmit={handleSubmit(handleSearchTransactions)}
+        //onSubmit={handleSubmit(handleSearchTransactions)}
         >
           {" Publicações"}
           <input
             type="text"
             placeholder="Procurando algum repositório expecífico? "
-            {...register("search")}
+            // {...register("search")}
           />
           <button>
             <i className="fa-solid fa-magnifying-glass"></i>

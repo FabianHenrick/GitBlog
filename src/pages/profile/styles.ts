@@ -98,12 +98,12 @@ export const RepositorySearchContainter = styled.form`
 
   button {
     cursor: pointer;
-    width: 30px;
-    height: 30px;
     position: absolute;
-    top: 530px;
-    left: 1131px;
-    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    top: 528px;
+    margin-left: 830px;
+    border-radius: 4px;
     border: none;
     background-color: ${(props) => props.theme["base-border"]};
   }
