@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { UserProps } from "../@types/user";
 import axios from "axios";
 
@@ -59,6 +59,25 @@ export const UserContextProvider = ({
 
       .catch((error) => console.log(error));
   }
+
+  async function fetchRepositories(search?: string) {
+    const response = await axios.get(
+      `https://api.github.com/users/${userName}/repos/${search}`,
+      {
+        params: {
+          q: search,
+        },
+      }
+    );
+
+    setRepositories(response.data);
+    console.log(repositories);
+  }
+
+  useEffect(() => {
+    fetchRepositories();
+  }, []);
+
   return (
     <UserContext.Provider
       value={{
@@ -69,6 +88,7 @@ export const UserContextProvider = ({
         loadUser,
         repositories,
         loadRepository,
+        fetchRepositories,
       }}
     >
       {children}

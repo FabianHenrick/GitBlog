@@ -24,19 +24,17 @@ export function Profile() {
     description: string | null;
     created_at: string;
   };
-  const { user, userName, loadRepository, repositories } =
+  const { user, userName, loadRepository, repositories, fetchRepositories } =
     useContext(UserContext);
 
   // utilização do Zod para fazer as buscas
-  const {
-    register,
-    handleSubmit,
-    formState: { isSubmitting },
-  } = useForm<SearchFormInputs>({ resolver: zodResolver(searchFormSchema) });
-  async function handleSearchTransactions(data: SearchFormInputs) {
-    await loadRepository(data.search);
+  const { register, handleSubmit } = useForm<SearchFormInputs>({
+    resolver: zodResolver(searchFormSchema),
+  });
+
+  async function handleSearchRepositories(data: SearchFormInputs) {
+    await fetchRepositories(data.search);
   }
-  loadRepository(userName);
 
   return (
     <div>
@@ -72,15 +70,15 @@ export function Profile() {
 
       <RepositorysContainer>
         <RepositorySearchContainter
-        //onSubmit={handleSubmit(handleSearchTransactions)}
+          onSubmit={handleSubmit(handleSearchRepositories)}
         >
           {" Publicações"}
           <input
             type="text"
             placeholder="Procurando algum repositório expecífico? "
-            // {...register("search")}
+            {...register("search")}
           />
-          <button>
+          <button type="submit">
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </RepositorySearchContainter>
