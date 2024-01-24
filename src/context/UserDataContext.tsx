@@ -62,7 +62,7 @@ export const UserContextProvider = ({
 
   async function fetchRepositories(search?: string) {
     const response = await axios.get(
-      `https://api.github.com/users/${userName}/repos/${search}`,
+      `https://api.github.com/users/${userName}/repos`,
       {
         params: {
           q: search,

@@ -24,7 +24,7 @@ export function Profile() {
     description: string | null;
     created_at: string;
   };
-  const { user, userName, loadRepository, repositories, fetchRepositories } =
+  const { user, userName, repositories, fetchRepositories } =
     useContext(UserContext);
 
   // utilização do Zod para fazer as buscas
