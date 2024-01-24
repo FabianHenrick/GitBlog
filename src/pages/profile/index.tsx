@@ -83,7 +83,7 @@ export function Profile() {
           </button>
         </RepositorySearchContainter>
         <RepositoryList>
-          <li key={repositories.id}>
+          <li key={repositories.name}>
             {repositories.map((repositories: Repository) => {
               return (
                 <RepositoryCard>

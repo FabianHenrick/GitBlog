@@ -59,16 +59,15 @@ export const UserContextProvider = ({
 
       .catch((error) => console.log(error));
   }
-
+  const api = axios.create({
+    baseURL: `https://api.github.com/users/${userName}/`,
+  });
   async function fetchRepositories(search?: string) {
-    const response = await axios.get(
-      `https://api.github.com/users/${userName}/repos`,
-      {
-        params: {
-          q: search,
-        },
-      }
-    );
+    const response = await api.get("repos", {
+      params: {
+        q: search,
+      },
+    });
 
     setRepositories(response.data);
     console.log(repositories);
